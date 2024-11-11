@@ -8,12 +8,18 @@
  *   can lead to unexpected behaviors
  */
 
+import { resourceLimits } from "worker_threads"
+
 /**
  * @param {number} n
  * @return {boolean} true if n is bigger than 2
  */
 export function isBiggerThan2(n) {
   // Write your code here
+  if (typeof n !== 'number' || isNaN(n)) {
+    throw new Error("...")
+  }
+  return n > 2
 }
 
 /**
@@ -23,4 +29,8 @@ export function isBiggerThan2(n) {
  */
 export function isMult(n, m) {
   // Write your code here
+  if (typeof n !== 'number' && typeof m !== 'number' || isNaN(n) || isNaN(m)){
+    throw new Error("...")
+  }
+  return n % m == 0
 }
