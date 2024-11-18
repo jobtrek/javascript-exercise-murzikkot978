@@ -6,10 +6,10 @@ import { isArray } from "util"
  */
 export function computeSphereVolume(diameter) {
   // Write your code here
-  if (typeof diameter !== 'number' || isNaN(diameter) || diameter < 0 ){
+  if (typeof diameter !== 'number' || isNaN(diameter) || diameter < 0) {
     throw new Error("...")
   }
-  const radius = diameter/2
+  const radius = diameter / 2
   const volume = (4 / 3) * Math.PI * Math.pow(radius, 3)
   return volume
 }
@@ -20,7 +20,7 @@ export function computeSphereVolume(diameter) {
  */
 export function roundNumberToOneDecimals(n) {
   // Write your code here
-  if (typeof n !== 'number' || isNaN(n)){
+  if (typeof n !== 'number' || isNaN(n)) {
     throw new Error("...")
   }
   var number = Math.round(n * 10) / 10
@@ -33,14 +33,14 @@ export function roundNumberToOneDecimals(n) {
  */
 export function computeAverage(grades) {
   // Write your code here
-  if (!Array.isArray(grades) || (!grades.every(item => typeof item === 'number' && !isNaN(item)))){
+  if (!Array.isArray(grades) || (!grades.every(item => typeof item === 'number' && !isNaN(item)))) {
     throw new Error("...")
   }
   let sum = 0
   for (let i = 0; i < grades.length; i++) {
     sum += grades[i]
   }
-  
+
   return sum / grades.length
 }
 
@@ -50,7 +50,7 @@ export function computeAverage(grades) {
  */
 export function roundedAverage(grades) {
   // Write your code here
-  if (!Array.isArray(grades) || (!grades.every(item => typeof item === 'number' && !isNaN(item)))){
+  if (!Array.isArray(grades) || (!grades.every(item => typeof item === 'number' && !isNaN(item)))) {
     throw new Error("...")
   }
   let sum = 0
