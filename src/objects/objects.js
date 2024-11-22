@@ -5,12 +5,19 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#objects
  */
 
+import { stringify } from "querystring"
+
 /**
  * @return {Object} you should return a new object containing two properties, first_name and last_name.
  * The values of the properties should be "Toto", "Tutu"
  */
 export function crateUserObject() {
   // Write your code here
+  const personne = {
+    first_name: 'Toto',
+    last_name: 'Tutu'
+  }
+  return personne
 }
 
 /**
@@ -20,6 +27,7 @@ export function crateUserObject() {
  */
 export function accessPropertiesInObjects(object) {
   // Write your code here
+  return object.first_name.concat(' ', object.last_name)
 }
 
 /**
@@ -31,6 +39,15 @@ export function accessPropertiesInObjects(object) {
  */
 export function iteratesThroughObjectValuesAndProperties(object) {
   // Write your code here
+  const keys = []
+  const values = []
+  for (const key in object) {
+    if (object.hasOwnProperty(key)) {
+      keys.push(key.toUpperCase());
+      values.push(String(object[key]).toLowerCase());
+    }
+  }
+  return { keys, values }
 }
 
 /**
@@ -40,6 +57,20 @@ export function iteratesThroughObjectValuesAndProperties(object) {
  */
 export function retrieveMaximumMinimumUserAges(users) {
   // Write your code here
+  let younger = users[0]
+  let older = users[0]
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].age < younger.age) {
+      younger = users[i]
+    }
+    if (users[i].age >= older.age) {
+      older = users[i]
+    }
+  }
+  return {
+    younger: String(younger.name),
+    older: String(older.name)
+  }
 }
 
 /**
@@ -50,6 +81,7 @@ export function retrieveMaximumMinimumUserAges(users) {
  */
 export function parseJavaScriptObjectNotation(string) {
   // Write your code here
+  return JSON.parse(string)
 }
 
 /**
@@ -58,4 +90,6 @@ export function parseJavaScriptObjectNotation(string) {
  */
 export function stringifyJavaScriptObjectNotation(object) {
   // Write your code here
+  toString(object)
+  return JSON.stringify(object)
 }
