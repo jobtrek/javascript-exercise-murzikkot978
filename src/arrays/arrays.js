@@ -50,8 +50,7 @@ export function replaceElementsInArrayAtAGivenPlace(
 ) {
   // Write your code here
   console.log(array)
-  const number = array[index]
   const arrays = [array.slice(0, index), newElements, array.slice(index + newElements.length)]
-
+  console.log(arrays)
   return (arrays.flat())
 }

@@ -9,6 +9,7 @@
  */
 export function getElementFromDomAndChangeColorToRed() {
   // Write your code here
+  document.getElementById("change-my-color").style.color = "red"
 }
 
 /**
@@ -17,6 +18,13 @@ export function getElementFromDomAndChangeColorToRed() {
  */
 export function addElementsInDOM() {
   // Write your code here
+  let parent = document.getElementById("add-your-elements-in-this-element")
+  let first_paragraph = document.createElement("p")
+  let second_paragraph = document.createElement("p")
+  first_paragraph.innerHTML = "Bonjour"
+  second_paragraph.innerHTML = "Toto"
+  parent.appendChild(first_paragraph)
+  parent.appendChild(second_paragraph)
 }
 
 /**
@@ -27,4 +35,13 @@ export function addElementsInDOM() {
  */
 export function addAListInDomFromAnArrayOfObjects(listElements) {
   // Write your code here
+  let elements = document.getElementById("add-list-here")
+  const ul = document.createElement("ul")
+  listElements.forEach(item => {
+    const li = document.createElement("li")
+    li.textContent = item.name
+    li.style.backgroundColor = item.color
+    ul.appendChild(li)
+  });
+  elements.appendChild(ul)
 }
