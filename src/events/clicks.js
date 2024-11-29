@@ -5,6 +5,9 @@
  */
 export function reactToClickEvent() {
   // Write your code here
+  document.getElementById("click-me").onclick = function() {
+    alert("hi")
+  }
 }
 
 /**
@@ -13,4 +16,10 @@ export function reactToClickEvent() {
  */
 export function addEventToDomOnClick() {
   // Write your code here
+  const button = document.querySelector("button")
+  button.addEventListener("click", function() {
+    const div = document.createElement("div")
+    div.textContent = "clicked"
+    button.parentNode.insertBefore(div, button.nextSibling)
+})
 }
