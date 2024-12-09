@@ -4,14 +4,21 @@
  * You need to display coordinates as follows : "x: 232, y: 332
  */
 export function mouseMovements() {
-  // Write your code here
+    // Write your code here
+    let mous = document.getElementById("mouse-coordinates")
+
+    document.addEventListener("mousemove", function (event) {
+        const x = event.clientX
+        const y = event.clientY
+        mous.textContent = `x: ${x}, y: ${y}`
+    })
 }
 
 const randomRGB = () => {
-  const o = Math.round
-  const r = Math.random
-  const s = 255
-  return `rgba(${o(r() * s)},${o(r() * s)},${o(r() * s)})`
+    const o = Math.round
+    const r = Math.random
+    const s = 255
+    return `rgba(${o(r() * s)},${o(r() * s)},${o(r() * s)})`
 }
 let enteringColor = ''
 
@@ -25,7 +32,36 @@ let enteringColor = ''
  * Third, when you loose focus of the field, you need to reset the border color to the default one.
  */
 export function hoverFocusAndBlur() {
-  // Write your code here
+    // Write your code here
+    let cursor = document.querySelector("#focus-me")
+    let initialLabels = []
+    cursor.labels.forEach(el => {
+        initialLabels.push(el.textContent)
+    })
+    console.log(initialLabels)
+
+
+    let label1 = cursor.previousElementSibling
+    let label2 = cursor.nextElementSibling
+
+    let reset1 = cursor.previousElementSibling.textContent
+    let reset2 = cursor.nextElementSibling.textContent
+    enteringColor = `#6495ed`
+
+    cursor.addEventListener("focus", (e) => {
+        cursor.style.borderColor = randomRGB()
+    })
+    cursor.addEventListener("blur", (e) => {
+        cursor.style.borderColor = enteringColor
+    })
+    cursor.addEventListener("mouseover", (e) => {
+        cursor.labels.forEach(label => label.textContent = "Yes, you hover me !")
+    })
+    cursor.addEventListener("mouseout", (e) => {
+        cursor.labels.forEach((label, index) => label.textContent = initialLabels[index])
+    })
+
+
 }
 
 /**
@@ -37,5 +73,10 @@ export function hoverFocusAndBlur() {
  * Take the opportunity to also apply this colour to the text of the 2 input labels.
  */
 export function changesOnInputEvents() {
-  // Write your code here
+    // Write your code here
+    const cursor = document.querySelector("#focus-me")
+    cursor.addEventListener("input", (e) => {
+        enteringColor = randomRGB()
+        cursor.labels.forEach(label => label.style.color = enteringColor)
+    })
 }

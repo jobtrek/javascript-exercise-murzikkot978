@@ -6,7 +6,7 @@
 export function reactToClickEvent() {
   // Write your code here
   document.getElementById("click-me").onclick = function() {
-    alert("hi")
+    alert("Button clicked")
   }
 }
 
