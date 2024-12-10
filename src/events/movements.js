@@ -38,7 +38,6 @@ export function hoverFocusAndBlur() {
     cursor.labels.forEach(el => {
         initialLabels.push(el.textContent)
     })
-    console.log(initialLabels)
 
 
     let label1 = cursor.previousElementSibling
